@@ -1,0 +1,12 @@
+steps:
+- id: 'Install gems for Jekyll'
+  name: 'gcr.io/$PROJECT_ID/jekyll'
+  args: ['install']
+
+- id: 'Build site into `_site`'
+  name: 'gcr.io/$PROJECT_ID/jekyll'
+  args: ['exec','jekyll','build']
+
+- id: 'Push generated site to GCS'
+  name: 'gcr.io/cloud-builders/gsutil'
+  args: ['-m','cp','-r','_site/*','gs://jekyll.doingdevops.com/']

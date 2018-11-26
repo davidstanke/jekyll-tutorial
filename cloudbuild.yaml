@@ -2,10 +2,14 @@ steps:
 - id: 'Install gems for Jekyll'
   name: 'gcr.io/$PROJECT_ID/jekyll'
   args: ['install']
+  env:
+  - 'BUNDLE_BIN_PATH=bundle'
 
 - id: 'Build site into `_site`'
   name: 'gcr.io/$PROJECT_ID/jekyll'
   args: ['exec','jekyll','build']
+  env:
+  - 'BUNDLE_BIN_PATH=bundle'
 
 - id: 'Push generated site to GCS'
   name: 'gcr.io/cloud-builders/gsutil'

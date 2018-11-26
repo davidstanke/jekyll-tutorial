@@ -9,9 +9,9 @@ RUN apt-get update && apt-get install -y ruby ruby-dev build-essential
 RUN gem install jekyll bundler
 
 # this builder assumes user is using jekyll via ruby bundle
-ENTRYPOINT ["bundle","exec","jekyll","build"]
+ENTRYPOINT ["bundle"]
 ```
 (TODO: make a scheduled build to publish the builder on a schedule)
 
 ## Status:
-2018-11-26: local build works, via `bundle exec jekyll build`. TODO: GCB build!
+2018-11-26: Working via local build; TODO: try triggered

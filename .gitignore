@@ -50,3 +50,9 @@ build-iPhoneSimulator/
 .rvmrc
 .DS_Store
 .sass-cache*
+
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata

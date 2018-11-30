@@ -12,6 +12,3 @@ RUN gem install jekyll bundler
 ENTRYPOINT ["bundle"]
 ```
 (TODO: make a scheduled build to publish the builder on a schedule)
-
-## Status:
-2018-11-26: Working via local build; TODO: try triggered

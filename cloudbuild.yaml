@@ -1,14 +1,12 @@
 steps:
+- id: 'Install gems for Jekyll'
+  name: 'gcr.io/$PROJECT_ID/jekyll'
+  args: ['install', '--path', 'vendor/bundle']
 
 # use Jekyll to build the site. Generated output will be in `_site`
 - id: 'Install gems and run jekyll'
   name: 'gcr.io/$PROJECT_ID/jekyll'
-  entrypoint: 'bash'
-  args: 
-  - '-c'
-  - > 
-    bundle install;
-    bundle exec jekyll build;
+  args: ['exec','jekyll','build']
 
 # push content from `_site` to web root
 - id: 'Push generated site to GCS'
